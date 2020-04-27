@@ -1,0 +1,58 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform :android
+
+platform :android do
+  before_all do
+     ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+  end
+
+  desc "Running fastlane"
+  lane :fast do
+   # detekt
+    build_apk
+    beta
+  end
+
+  desc "Submit a new Beta Build to Firebase App Distribution"
+  lane :beta do
+    gradle(task: "appDistributionUploadDevDebug")
+  end
+
+  desc "Clean Build"
+  lane :build_apk do
+    gradle(task: "clean assemble -Dkotlin.compiler.execution.strategy=in-process -Dkotlin.incremental=false")
+  end
+
+  desc "Running Detekt"
+  lane :detekt do
+     gradle(task: "detekt")
+  end
+
+  after_all do |lane|
+    slack(
+      message: "Branch Name: #{ENV["CIRCLE_BRANCH"]} Build #: (#{ENV["CIRCLE_BUILD_NUM"]}) was built and successfully uploaded to Firebase :rocket:"
+    )
+  end
+
+  error do |lane, exception|
+     slack(
+       message: exception.message,
+       success: false
+     )
+  end
+end
+

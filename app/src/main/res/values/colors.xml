@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#2196F3</color>
+    <color name="colorAccent">#CDDC39</color>
+    <color name="colorBottom">#E91E63</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="orange">#FF5722</color>
+
+    <color name="bottom_sheet">#95EAD1</color>
+</resources>

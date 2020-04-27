@@ -1,0 +1,20 @@
+version: 2.1
+
+orbs:
+  android: circleci/android@0.2.0
+
+jobs:
+  build:
+    executor: android/android
+    docker:
+      - image: circleci/android:api-29
+    environment:
+      JVM_OPTS: ~Xmx3200m
+
+    steps:
+      - checkout
+      - run:
+          name: Running Fastlane
+          command: |
+            bundle install
+            bundle exec fastlane fast

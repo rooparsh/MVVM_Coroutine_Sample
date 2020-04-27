@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "732473175491",
+    "firebase_url": "https://app-55663.firebaseio.com",
+    "project_id": "app-55663",
+    "storage_bucket": "app-55663.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732473175491:android:e9699cee276cab1442e176",
+        "android_client_info": {
+          "package_name": "com.darkknight.base"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732473175491-1grnmr6v56k952ahh1g6533jcsff1bqo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAguPoQq1yfo66xv92sGo3CvV6zMQa8I7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732473175491-1grnmr6v56k952ahh1g6533jcsff1bqo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
